@@ -1,0 +1,70 @@
+{
+  "mapDias": {
+    "0": "domingo",
+    "1": "segunda",
+    "2": "terca",
+    "3": "quarta",
+    "4": "quinta",
+    "5": "sexta",
+    "6": "sabado"
+  },
+
+  "semana": {
+    "segunda": { "treino": "A" },
+    "terca":   { "treino": "B" },
+    "quarta":  { "treino": "C" },
+    "quinta":  { "treino": "D" },
+    "sexta":   { "treino": "E" },
+    "sabado":  { "treino": null },
+    "domingo": { "treino": null }
+  },
+
+  "treinos": {
+    "A": {
+      "titulo": "Treino A — Peito / Tríceps",
+      "exercicios": [
+        { "id": "a1", "nome": "Supino Reto",       "series": 4, "reps": 10 },
+        { "id": "a2", "nome": "Supino Inclinado",  "series": 4, "reps": 10 },
+        { "id": "a3", "nome": "Crossover",         "series": 3, "reps": 12 },
+        { "id": "a4", "nome": "Tríceps Testa",     "series": 3, "reps": 12 },
+        { "id": "a5", "nome": "Tríceps Pulley",    "series": 4, "reps": 10 }
+      ]
+    },
+
+    "B": {
+      "titulo": "Treino B — Coxa / Quadríceps",
+      "exercicios": [
+        { "id": "b1", "nome": "Leg Press",         "series": 4, "reps": 10 },
+        { "id": "b2", "nome": "Agachamento",       "series": 4, "reps": 10 },
+        { "id": "b3", "nome": "Cadeira Extensora", "series": 3, "reps": 12 },
+        { "id": "b4", "nome": "Flexora",           "series": 3, "reps": 12 }
+      ]
+    },
+
+    "C": {
+      "titulo": "Treino C — Costas / Bíceps",
+      "exercicios": [
+        { "id": "c1", "nome": "Puxada Frente",     "series": 4, "reps": 12 },
+        { "id": "c2", "nome": "Remada Baixa",      "series": 4, "reps": 12 },
+        { "id": "c3", "nome": "Rosca Direta",      "series": 3, "reps": 12 }
+      ]
+    },
+
+    "D": {
+      "titulo": "Treino D — Posterior / Glúteos",
+      "exercicios": [
+        { "id": "d1", "nome": "Stiff",             "series": 3, "reps": 12 },
+        { "id": "d2", "nome": "Sumô",              "series": 3, "reps": 12 },
+        { "id": "d3", "nome": "Máq. Glúteos",      "series": 3, "reps": 10 }
+      ]
+    },
+
+    "E": {
+      "titulo": "Treino E — Ombro",
+      "exercicios": [
+        { "id": "e1", "nome": "Elevação Lateral",  "series": 3, "reps": 12 },
+        { "id": "e2", "nome": "Desenvolvimento",   "series": 4, "reps": 10 }
+      ]
+    }
+  }
+}

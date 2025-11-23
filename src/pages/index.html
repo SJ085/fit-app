@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - FitApp</title>
+
+  <!-- Tailwind compilado -->
+  <link rel="stylesheet" href="../../public/style.css">
+</head>
+
+<body class="min-h-screen pb-24 p-5 space-y-6 bg-zinc-950 text-white">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between mb-4">
+    <h1 class="text-3xl font-bold">Dashboard</h1>
+    <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center">
+      <span class="text-zinc-400 text-sm">SJ</span>
+    </div>
+  </header>
+
+  <!-- Cards principais -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition">
+      <p class="text-zinc-400">Peso atual</p>
+      <h2 class="text-3xl font-bold mt-1">57,8 kg</h2>
+    </div>
+
+    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition">
+      <p class="text-zinc-400">Treino da Semana</p>
+      <h2 class="text-3xl font-bold mt-1">4</h2>
+    </div>
+
+    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition">
+      <p class="text-zinc-400">Meta Diária</p>
+      <h2 class="text-3xl font-bold mt-1">Completa</h2>
+    </div>
+
+  </section>
+
+  <!-- Gráfico -->
+  <section class="bg-zinc-900 rounded-2xl p-4 border border-zinc-800">
+    <h3 class="text-xl font-semibold mb-3">Evolução do Peso</h3>
+    <canvas id="pesoChart" height="120"></canvas>
+  </section>
+
+  <!-- Últimos treinos -->
+  <section class="space-y-4">
+    <h3 class="text-xl font-semibold">Últimos treinos</h3>
+
+    <div class="bg-zinc-900 p-4 rounded-xl border border-zinc-800 hover:border-zinc-700 transition">
+      <div class="flex justify-between items-center">
+        <p class="font-bold">Pernas</p>
+        <span class="text-xs text-zinc-500">18/11</span>
+      </div>
+      <p class="text-zinc-400 text-sm mt-1">Agachamento, Leg Press, Cadeira Extensora...</p>
+    </div>
+
+    <div class="bg-zinc-900 p-4 rounded-xl border border-zinc-800 hover:border-zinc-700 transition">
+      <div class="flex justify-between items-center">
+        <p class="font-bold">Peito</p>
+        <span class="text-xs text-zinc-500">17/11</span>
+      </div>
+      <p class="text-zinc-400 text-sm mt-1">Supino, Crucifixo, Tríceps testa...</p>
+    </div>
+
+    <div class="bg-zinc-900 p-4 rounded-xl border border-zinc-800 hover:border-zinc-700 transition">
+      <div class="flex justify-between items-center">
+        <p class="font-bold">Costas</p>
+        <span class="text-xs text-zinc-500">16/11</span>
+      </div>
+      <p class="text-zinc-400 text-sm mt-1">Puxada alta, Remada, Bíceps rosca...</p>
+    </div>
+  </section>
+
+
+  <!-- MENU INFERIOR -->
+  <nav class="fixed bottom-0 left-0 w-full bg-zinc-900 border-t border-zinc-800">
+    <ul class="flex justify-around py-3 text-zinc-400">
+
+      <li class="flex flex-col items-center">
+        <a href="./index.html" class="flex flex-col items-center">
+          <span class="text-xl">🏠</span>
+          <span class="text-xs mt-1 text-zinc-100">Home</span>
+        </a>
+      </li>
+
+      <li class="flex flex-col items-center">
+        <a href="./treino.html" class="flex flex-col items-center">
+          <span class="text-xl">🔥</span>
+          <span class="text-xs mt-1">Treinos</span>
+        </a>
+      </li>
+
+      <li class="flex flex-col items-center">
+        <a href="./exercicios.html" class="flex flex-col items-center">
+          <span class="text-xl">💪</span>
+          <span class="text-xs mt-1">Exercícios</span>
+        </a>
+      </li>
+
+      <li class="flex flex-col items-center">
+        <a href="./perfil.html" class="flex flex-col items-center">
+          <span class="text-xl">👤</span>
+          <span class="text-xs mt-1">Perfil</span>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/menu.js"></script>
+
+</body>
+</html>
