@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Exercícios — FitApp</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="min-h-screen pb-24 bg-zinc-950 text-white">
 
@@ -27,7 +27,7 @@
   </nav>
 
   <script type="module">
-    const dataPath = '../data/treinos.json';
+    const dataPath = './data/treinos.json';
     async function loadExercises() {
       const res = await fetch(dataPath);
       const json = await res.json();

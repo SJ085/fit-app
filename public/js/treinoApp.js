@@ -2,7 +2,7 @@
 import { load, save, formatDateKey } from './utils.js';
 import { createTimer } from './timer.js';
 
-const DATA_PATH = '../data/treinos.json';
+const DATA_PATH = '/data/treinos.json';
 const STORAGE_KEY_PREFIX = 'fitapp:treino:';
 
 async function fetchData() {
