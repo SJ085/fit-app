@@ -10,13 +10,13 @@
   },
 
   "semana": {
-    "segunda": { "treino": "A" },
+    "Segunda-feira": { "treino": "A" },
     "Terça-feira":   { "treino": "B" },
-    "quarta":  { "treino": "C" },
-    "quinta":  { "treino": "D" },
-    "sexta":   { "treino": "E" },
-    "sabado":  { "treino": null },
-    "domingo": { "treino": null }
+    "Quarta-feira":  { "treino": "C" },
+    "Quinta-feira":  { "treino": "D" },
+    "Sexta-feira":   { "treino": "E" },
+    "Sábado":  { "treino": null },
+    "Domingo": { "treino": null }
   },
 
   "treinos": {
