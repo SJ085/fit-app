@@ -21,49 +21,61 @@
 
   "treinos": {
     "A": {
-      "titulo": "Treino A — Peito / Tríceps",
+      "titulo": "Treino A — Ombro / Trapézio",
       "exercicios": [
-        { "id": "a1", "nome": "Supino Reto",       "series": 4, "reps": 10 },
-        { "id": "a2", "nome": "Supino Inclinado",  "series": 4, "reps": 10 },
-        { "id": "a3", "nome": "Crossover",         "series": 3, "reps": 12 },
-        { "id": "a4", "nome": "Tríceps Testa",     "series": 3, "reps": 12 },
-        { "id": "a5", "nome": "Tríceps Pulley",    "series": 4, "reps": 10 }
+        { "id": "a1", "nome": "Desenvolvimento H",       "series": 4, "reps": 10 },
+        { "id": "a2", "nome": "Elevação Lateral H",  "series": 3, "reps": 10 },
+        { "id": "a3", "nome": "Elevação Frontal",         "series": 2, "reps": 20 },
+        { "id": "a4", "nome": "Remada Alta",     "series": 3, "reps": 12 },
+        { "id": "a5", "nome": "Peck Inv.",    "series": 2, "reps": 20 },
+        { "id": "a6", "nome": "Antebraço",    "series": 4, "reps": 10 }
       ]
     },
 
     "B": {
-      "titulo": "Treino B — Coxa / Quadríceps",
+      "titulo": "Treino B — Coxa",
       "exercicios": [
-        { "id": "b1", "nome": "Leg Press",         "series": 4, "reps": 10 },
-        { "id": "b2", "nome": "Agachamento",       "series": 4, "reps": 10 },
-        { "id": "b3", "nome": "Cadeira Extensora", "series": 3, "reps": 12 },
-        { "id": "b4", "nome": "Flexora",           "series": 3, "reps": 12 }
+        { "id": "b1", "nome": "Extensora + uni",         "series": 4, "reps": 10 },
+        { "id": "b2", "nome": "Leg Press 45º",          "series": 2, "reps": 20 },
+        { "id": "b3", "nome": "Agachamento",            "series": 4, "reps": 12 },
+        { "id": "b4", "nome": "Adução",                 "series": 3, "reps": 20 },
+        { "id": "b5", "nome": "Flex. Sentado",          "series": 4, "reps": 20 }
       ]
     },
 
     "C": {
-      "titulo": "Treino C — Costas / Bíceps",
+      "titulo": "Treino C — Peitorais / Tríceps",
       "exercicios": [
-        { "id": "c1", "nome": "Puxada Frente",     "series": 4, "reps": 12 },
-        { "id": "c2", "nome": "Remada Baixa",      "series": 4, "reps": 12 },
-        { "id": "c3", "nome": "Rosca Direta",      "series": 3, "reps": 12 }
+        { "id": "c1", "nome": "Supino 45º H",     "series": 4, "reps": 10 },
+        { "id": "c2", "nome": "Crucifixo",      "series": 3, "reps": 12 },
+        { "id": "c3", "nome": "Cross Over",      "series": 3, "reps": 12 },
+        { "id": "c4", "nome": "Tríceps Corda",      "series": 4, "reps": 10 },
+        { "id": "c5", "nome": "Tríceps Francês C",      "series": 4, "reps": 10 },
+        { "id": "c6", "nome": "Tríceps Testa",      "series": 3, "reps": 12 }
       ]
     },
 
     "D": {
-      "titulo": "Treino D — Posterior / Glúteos",
+      "titulo": "Treino D — Quadril",
       "exercicios": [
-        { "id": "d1", "nome": "Stiff",             "series": 3, "reps": 12 },
-        { "id": "d2", "nome": "Sumô",              "series": 3, "reps": 12 },
-        { "id": "d3", "nome": "Máq. Glúteos",      "series": 3, "reps": 10 }
+        { "id": "d1", "nome": "Cad. Flexora",             "series": 4, "reps": 10 },
+        { "id": "d2", "nome": "Flex. Pé",              "series": 3, "reps": 12 },
+        { "id": "d3", "nome": "Abdução",      "series": 4, "reps": 10 },
+        { "id": "d4", "nome": "Sumô",      "series": 3, "reps": 10 },
+        { "id": "d5", "nome": "Elevação Pélvica",      "series": 2, "reps": 20 },
+        { "id": "d6", "nome": "Flex. Sentado",          "series": 4, "reps": 20 }
       ]
     },
 
     "E": {
-      "titulo": "Treino E — Ombro",
+      "titulo": "Treino E — Costas / Bíceps",
       "exercicios": [
-        { "id": "e1", "nome": "Elevação Lateral",  "series": 3, "reps": 12 },
-        { "id": "e2", "nome": "Desenvolvimento",   "series": 4, "reps": 10 }
+        { "id": "e1", "nome": "Puxador Frente Sup",  "series": 4, "reps": 12 },
+        { "id": "e2", "nome": "Puxador",   "series": 3, "reps": 12 },
+        { "id": "e3", "nome": "Extens. Ombro",   "series": 3, "reps": 10 },
+        { "id": "e4", "nome": "Remada Unilat.",   "series": 3, "reps": 10 },
+        { "id": "e5", "nome": "Rosca Direta P",   "series": 3, "reps": 21 },
+        { "id": "e6", "nome": "Martelo Corda",   "series": 4, "reps": 12 }
       ]
     }
   }
