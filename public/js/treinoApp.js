@@ -76,9 +76,6 @@ async function init() {
       <h1 id="treinoTitle" class="text-3xl font-bold">Treino de Hoje</h1>
       <p class="text-zinc-400 text-sm mt-1">Dia: <span id="diaNome">${diaNome}</span></p>
     </div>
-    <div class="flex items-center gap-2">
-      <button id="btnTheme" class="px-3 py-1 rounded bg-zinc-800 text-sm">Tema</button>
-    </div>
   `;
   app.appendChild(header);
 
