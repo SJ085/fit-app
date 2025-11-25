@@ -11,7 +11,7 @@
 
   "semana": {
     "segunda": { "treino": "A" },
-    "terca":   { "treino": "B" },
+    "Terça-feira":   { "treino": "B" },
     "quarta":  { "treino": "C" },
     "quinta":  { "treino": "D" },
     "sexta":   { "treino": "E" },
