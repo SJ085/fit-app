@@ -47,37 +47,116 @@
     </ul>
   </nav>
 
-  <script type="module">
-    const dataPath = './data/treinos.json';
-    async function loadExercises() {
-      const res = await fetch(dataPath);
-      const json = await res.json();
-      const list = document.getElementById('list');
-      const all = Object.values(json.treinos).flatMap(t => t.exercicios);
+  <!-- Modal de Exercício -->
+  <div id="exerciseModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center hidden">
+    <div class="bg-zinc-900 max-w-md w-full mx-4 p-5 rounded-2xl border border-zinc-800">
+      
+      <h2 id="modalTitle" class="text-2xl font-bold mb-3"></h2>
 
-      function render(filter='') {
-        list.innerHTML = '';
-        const filtered = all.filter(e => e.nome.toLowerCase().includes(filter.toLowerCase()));
-        filtered.forEach(ex => {
-          const div = document.createElement('div');
-          div.className = 'bg-zinc-900 p-4 rounded-xl border border-zinc-800';
-          div.innerHTML = `
-            <div class="flex justify-between">
-              <div>
-                <div class="font-bold">${ex.nome}</div>
-                <div class="text-zinc-400 text-sm">${ex.series} x ${ex.reps}</div>
-              </div>
-              <div class="text-zinc-400 text-sm">•</div>
-            </div>
-          `;
-          list.appendChild(div);
-        });
-      }
+      <video id="modalVideo" autoplay loop muted playsinline class="w-full rounded-xl mb-3">
+        <source id="modalSource" src="" type="video/mp4">
+      </video>
 
-      document.getElementById('search').addEventListener('input', e => render(e.target.value));
-      render();
+      <p id="modalDesc" class="text-zinc-300 text-sm leading-relaxed"></p>
+
+      <button id="closeModal"
+        class="mt-5 w-full py-2 bg-zinc-800 rounded-xl text-zinc-300 hover:bg-zinc-700 transition">
+        Fechar
+      </button>
+
+    </div>
+  </div>
+
+ <script type="module">
+  const dataPath = './data/treinos.json';
+
+  // DADOS DAS ANIMAÇÕES + DESCRIÇÕES
+  const extraInfo = {
+    "Remada alta": {
+      video: "/videos/remada-alta.mp4",
+      desc: "Excelente para trapézio, deltoides e parte superior das costas. Ajuda muito na postura e força de puxada."
+    },
+    "Elevação frontal": {
+      video: "/videos/elevacao-frontal.mp4",
+      desc: "Foca no deltoide anterior, ideal para deixar o ombro mais arredondado e definido."
+    },
+    "Elevação lateral": {
+      video: "/videos/elevacao-lateral.mp4",
+      desc: "Trabalha o deltoide lateral, perfeito para aumentar a largura do ombro e dar o shape em V."
+    },
+    "Desenvolvimento com halteres": {
+      video: "/videos/desenvolvimentoH.mp4",
+      desc: "Exercício composto que ativa toda musculatura do ombro. Aumenta força, estabilidade e volume."
+    },
+    "Sumô": {
+      video: "/videos/sumo.mp4",
+      desc: "Ativa glúteos, posterior, quadríceps e adutores. Ótimo para fortalecer e melhorar estabilidade."
     }
-    loadExercises();
-  </script>
+  };
+
+  async function loadExercises() {
+    const res = await fetch(dataPath);
+    const json = await res.json();
+    const list = document.getElementById('list');
+    const all = Object.values(json.treinos).flatMap(t => t.exercicios);
+
+    function render(filter='') {
+      list.innerHTML = '';
+
+      const filtered = all.filter(e => e.nome.toLowerCase().includes(filter.toLowerCase()));
+
+      filtered.forEach(ex => {
+        const div = document.createElement('div');
+        div.className = 'bg-zinc-900 p-4 rounded-xl border border-zinc-800 cursor-pointer hover:border-zinc-700 transition';
+
+        div.innerHTML = `
+          <div class="flex justify-between">
+            <div>
+              <div class="font-bold">${ex.nome}</div>
+              <div class="text-zinc-400 text-sm">${ex.series} x ${ex.reps}</div>
+            </div>
+            <div class="text-zinc-400 text-sm">▶</div>
+          </div>
+        `;
+
+        // Abre o modal ao clicar
+        div.addEventListener('click', () => openModal(ex.nome));
+
+        list.appendChild(div);
+      });
+    }
+
+    // BUSCA
+    document.getElementById('search').addEventListener('input', e => render(e.target.value));
+
+    render();
+  }
+
+  // ===== MODAL =====
+  const modal = document.getElementById("exerciseModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalVideo = document.getElementById("modalVideo");
+  const modalSource = document.getElementById("modalSource");
+  const modalDesc = document.getElementById("modalDesc");
+
+  function openModal(name) {
+    const info = extraInfo[name];
+    
+    modalTitle.textContent = name;
+    modalSource.src = info?.video || "";
+    modalVideo.load();
+    modalDesc.textContent = info?.desc || "Sem descrição disponível.";
+
+    modal.classList.remove("hidden");
+  }
+
+  document.getElementById("closeModal").onclick = () => {
+    modal.classList.add("hidden");
+    modalVideo.pause();
+  };
+
+  loadExercises();
+</script>
+
 </body>
 </html>
