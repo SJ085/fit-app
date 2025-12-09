@@ -67,30 +67,39 @@
     </div>
   </div>
 
- <script type="module">
+<script type="module">
   const dataPath = './data/treinos.json';
 
-  // DADOS DAS ANIMAÇÕES + DESCRIÇÕES
+  // NORMALIZAÇÃO
+  function normalize(str) {
+    return str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]/g, "");
+  }
+
+  // DADOS DOS VÍDEOS + DESCRIÇÕES
   const extraInfo = {
-    "Remada alta": {
-      video: "/videos/remada-alta.mp4",
-      desc: "Excelente para trapézio, deltoides e parte superior das costas. Ajuda muito na postura e força de puxada."
+    "remadaalta": {
+      video: "./videos/remada-alta.mp4",
+      desc: "Excelente para trapézio, deltoides e parte superior das costas."
     },
-    "Elevação frontal": {
-      video: "/videos/elevacao-frontal.mp4",
-      desc: "Foca no deltoide anterior, ideal para deixar o ombro mais arredondado e definido."
+    "elevacaofrontal": {
+      video: "./videos/elevacao-frontal.mp4",
+      desc: "Isola o deltoide anterior. Perfeito para arredondar os ombros."
     },
-    "Elevação lateral": {
-      video: "/videos/elevacao-lateral.mp4",
-      desc: "Trabalha o deltoide lateral, perfeito para aumentar a largura do ombro e dar o shape em V."
+    "elevacaolateralh": {
+      video: "./videos/elevacao-lateral.mp4",
+      desc: "Trabalha o deltoide lateral e dá aquela largura no shape."
     },
-    "Desenvolvimento com halteres": {
-      video: "/videos/desenvolvimentoH.mp4",
-      desc: "Exercício composto que ativa toda musculatura do ombro. Aumenta força, estabilidade e volume."
+    "desenvolvimentoh": {
+      video: "./videos/desenvolvimentoH.mp4",
+      desc: "Exercício composto completo para força e volume dos ombros."
     },
-    "Sumô": {
-      video: "/videos/sumo.mp4",
-      desc: "Ativa glúteos, posterior, quadríceps e adutores. Ótimo para fortalecer e melhorar estabilidade."
+    "sumo": {
+      video: "./videos/sumo.mp4",
+      desc: "Ativa glúteos, posterior e adutores. Excelente para quadril."
     }
   };
 
@@ -98,16 +107,22 @@
     const res = await fetch(dataPath);
     const json = await res.json();
     const list = document.getElementById('list');
-    const all = Object.values(json.treinos).flatMap(t => t.exercicios);
+    const all = Object.values(json.treinos)
+    .flatMap(t => t.exercicios)
+    .sort((a, b) => a.nome.localeCompare(b.nome));
+
 
     function render(filter='') {
       list.innerHTML = '';
 
-      const filtered = all.filter(e => e.nome.toLowerCase().includes(filter.toLowerCase()));
+      const filtered = all.filter(e =>
+        e.nome.toLowerCase().includes(filter.toLowerCase())
+      );
 
       filtered.forEach(ex => {
         const div = document.createElement('div');
-        div.className = 'bg-zinc-900 p-4 rounded-xl border border-zinc-800 cursor-pointer hover:border-zinc-700 transition';
+        div.className =
+          'bg-zinc-900 p-4 rounded-xl border border-zinc-800 cursor-pointer hover:border-zinc-700 transition';
 
         div.innerHTML = `
           <div class="flex justify-between">
@@ -119,30 +134,28 @@
           </div>
         `;
 
-        // Abre o modal ao clicar
-        div.addEventListener('click', () => openModal(ex.nome));
-
+        div.addEventListener('click', () => openModal(ex));
         list.appendChild(div);
       });
     }
 
-    // BUSCA
-    document.getElementById('search').addEventListener('input', e => render(e.target.value));
+    document.getElementById('search')
+      .addEventListener('input', e => render(e.target.value));
 
     render();
   }
 
-  // ===== MODAL =====
   const modal = document.getElementById("exerciseModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalVideo = document.getElementById("modalVideo");
   const modalSource = document.getElementById("modalSource");
   const modalDesc = document.getElementById("modalDesc");
 
-  function openModal(name) {
-    const info = extraInfo[name];
-    
-    modalTitle.textContent = name;
+  function openModal(ex) {
+    const key = normalize(ex.nome);
+    const info = extraInfo[key];
+
+    modalTitle.textContent = ex.nome; // nome bonito
     modalSource.src = info?.video || "";
     modalVideo.load();
     modalDesc.textContent = info?.desc || "Sem descrição disponível.";

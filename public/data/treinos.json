@@ -39,7 +39,8 @@
         { "id": "b2", "nome": "Leg Press 45º",          "series": 2, "reps": 20 },
         { "id": "b3", "nome": "Agachamento",            "series": 4, "reps": 12 },
         { "id": "b4", "nome": "Adução",                 "series": 3, "reps": 20 },
-        { "id": "b5", "nome": "Flex. Sentado",          "series": 4, "reps": 20 }
+        { "id": "b5", "nome": "Flex. Sentado",          "series": 4, "reps": 20 },
+        { "id": "b6", "nome": "Passada",          "series": 4, "reps": 10 }
       ]
     },
 
